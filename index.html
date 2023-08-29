@@ -1,141 +1,117 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Barbie's Clock</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="/cwdc/mainPage/LCG.css" />
-        <style>
-            :root {
-                --cpink: #E0218A;
-                --clighter: #ED5C9B;
-                --cbubblegun: #F18DBC;
-                --cwhite: white;
-                --cdollhouse: #F7B9D7;
-                --ccandy: #FACDE5;
-                --cwhite3: #446127;
-            }
-            body {
-                margin: 20px;
-            }
-            #clock,
-            #handles {
-                border: 5px solid #E0218A;
-                padding: 20px;
-                margin: 0px;
-            }
-            #flu {
-                width: 512px;
-                font-family: cursive;
-                text-align: center;
-                font-size: 30px;
-            }
-            #container {
-                position: relative;
-                height: 512px;
-                margin: 0px;
-                margin-bottom: 50px;
-            }
-            canvas {
-                position: absolute;
-            }
-            #handles {
-                z-index: 2;
-            }
-            #clock {
-                background-color: white;
-                z-index: 1;
-            }
-        </style>
-    </head>
+  <head>
+    <title>Barbie's Clock</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/cwdc/mainPage/LCG.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oooh+Baby&family=Open+Sans:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --cpink: #e0218a;
+        --clighter: #ed5c9b;
+        --cbubblegun: #f18dbc;
+        --cwhite: white;
+        --cdollhouse: #f7b9d7;
+        --ccandy: #facde5;
+        --cwhite3: #446127;
+      }
+      body {
+        margin: 20px;
+      }
+      #clock,
+      #handles {
+        border: 5px solid #e0218a;
+        padding: 20px;
+        margin: 0px;
+      }
+      #barbie {
+        width: 512px;
+        font-family: cursive;
+        text-align: center;
+        font-size: 30px;
+      }
+      #container {
+        position: relative;
+        height: 512px;
+        margin: 0px;
+        margin-bottom: 50px;
+      }
+      canvas {
+        position: absolute;
+      }
+      #handles {
+        z-index: 2;
+      }
+      #clock {
+        background-color: white;
+        z-index: 1;
+      }
+    </style>
+  </head>
 
-    <body>
-        <p id="flu">
-            <a href="http://www.fluminense.com.br/site/"
-                >Barbie</a
-            >
-            <sub style="font-size: small">
-                <a href="/cg/downloads/PDFs/04_LCG_Window-Viewport.pdf">[1]</a>
-                <a href="/python/laboratorios2.html#8c">[2]</a>
-                <a
-                    href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones"
-                >
-                    [3]
-                </a>
-            </sub>
-        </p>
+  <body>
+    <p id="barbie">
+      <a
+        href="https://www.barbiefilme.com.br/"
+        style="
+          font-family: 'Oooh Baby', cursive;
+          font-size: 60px;
+          font-weight: 900;
+          color: #e0218a;
+          text-decoration: none;
+        "
+        >Barbie</a
+      >
+    </p>
 
-        <div id="container">
-            <canvas id="clock" width="512" height="512">
-                Please upgrade your browser.
-            </canvas>
-            <canvas id="handles" width="512" height="512">
-                Please upgrade your browser.
-            </canvas>
-        </div>
-        <br />
-        <p>
-            <audio title="Hino do Fluminense" controls loop>
-                <source src="hino-fluminense-fc.mp3" type="audio/mpeg" />
-                Please upgrade your browser!
-            </audio>
+    <div id="container">
+      <canvas id="clock" width="512" height="512">
+        Please upgrade your browser.
+      </canvas>
+      <canvas id="handles" width="512" height="512">
+        Please upgrade your browser.
+      </canvas>
+    </div>
+    <br />
+    <p>
+      <audio title="Dua Lipa-Dance The Night" controls loop>
+        <source
+          src="/Dua Lipa - Dance The Night (From Barbie The Album).mp3"
+          type="audio/mpeg"
+        />
+        Please upgrade your browser!
+      </audio>
 
-            <small>
-                Hino do Fluminense FC por
-                <a
-                    href="https://vejario.abril.com.br/cidade/curiosidades-hinos-times-cariocas/"
-                >
-                    Lamartine Babo (1949).
-                </a>
-            </small>
-        </p>
-        <p>
-            <iframe
-                title="O elástico de Rivelino"
-                width="320"
-                height="240"
-                src="https://www.youtube.com/embed/jt7ebGO6ILg"
-                frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-            >
-            </iframe>
-            <br />
-            <small id="Rivelino">
-                Elástico de Rivelino
-                <a href="https://www.youtube.com/watch?v=jt7ebGO6ILg">
-                    10/06/1975
-                </a>
-            </small>
-            <br />
-            <small id="Renato">
-                Gol de barriga do Renato
-                <a href="https://www.youtube.com/watch?v=CrIFGVYuq6c">
-                    25/06/1995
-                </a>
-            </small>
-            <br />
-            <small id="Cano">
-                Golaço de Cano do meio de campo
-                <a href="https://www.youtube.com/watch?v=UA-HwS766Hw">
-                    12/02/2023
-                </a>
-            </small>
-        </p>
+      <small>
+        Música Tema do Filme da Barbie por
+        <a
+          href="https://www.band.uol.com.br/entretenimento/notou-dua-lipa-em-barbie-como-e-a-participacao-relampago-da-cantora-no-filme-16618016"
+        >
+          Dua Lipa (2023)
+        </a>
+      </small>
+    </p>
+    <p>
+      <iframe
+        width="560"
+        height="315"
+        src="https://www.youtube.com/embed/N1NnDpjCQCY?si=c_pn_D5aIc5EhzIl"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+      <br />
+    </p>
 
-        <script src="suncalc.js"></script>
-        <script src="clock.js"></script>
-        <script src="date.js"></script>
-        <script>
-            document.querySelector(
-                "#Rivelino"
-            ).innerHTML += `(há ${elapsedYears("1975-06-10")} anos atrás)`;
-            document.querySelector("#Renato").innerHTML += `(há ${elapsedYears(
-                "1995-06-25"
-            )} anos atrás)`;
-            document.querySelector("#Cano").innerHTML += `(há ${elapsedYears(
-                "2023-02-12"
-            )} anos atrás)`;
-        </script>
-    </body>
+    <script src="suncalc.js"></script>
+    <script src="clock.js"></script>
+    <script src="date.js"></script>
+  </body>
 </html>
