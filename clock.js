@@ -258,7 +258,7 @@ function drawClock(place) {
   img.decode().then(() => {
     // Translate the center of the logo
     // to the center of the canvas.
-    let size = imgSize(img.width, img.height, 1.8 * clockRadius);
+    let size = imgSize(img.width, img.height, 2.2 * clockRadius);
     var coord = translate(scale(size, [-1 / 2, -1 / 2]), center);
     context.drawImage(img, coord.x, coord.y, size[0], size[1]);
 
@@ -271,7 +271,7 @@ function drawClock(place) {
       var coord = translate(scale(size, [-1 / 2, -1 / 2]), center);
       context.drawImage(logo, coord.x, coord.y, size[0], size[1]);
       // Handle origin.
-      context.strokeStyle = pink;
+      context.strokeStyle = bubblegun;
       context.fillStyle = white;
       circle(center, 10);
       circle(center, 10, false);
@@ -281,7 +281,7 @@ function drawClock(place) {
   // context.globalAlpha = 0.3; // set global alpha
 
   // Draw clock border.
-  context.strokeStyle = pink;
+  context.strokeStyle = dollhouse;
   context.lineWidth = 3;
   circle(center, clockRadius - 8, false);
 
@@ -382,7 +382,7 @@ function drawClock(place) {
       times.sunset.getHours() + offset + ":" + times.sunset.getMinutes();
 
     console.log(sunriseStr, sunsetStr);
-    context.strokeStyle = orange;
+    context.strokeStyle = pink;
     arc(center, clockRadius - 8, sunriseStr, sunsetStr, false);
   }
 
@@ -436,11 +436,14 @@ drawClock.romans = [
  * @member {Array<{txt: String, c: color}>} decimal clock numbers.
  */
 drawClock.decimals = Array.from(Array(24), (_, i) => {
-  return { txt: String(i), c: white2 };
+  return { txt: String(24 - i), c: lighter };
 });
-drawClock.decimals[0].txt = "24";
-drawClock.decimals[6].c = white3;
-drawClock.decimals[18].c = white3;
+drawClock.decimals[0].txt = "24"; // Mude o primeiro número de "24" para "1"
+drawClock.decimals[6].c = pink;
+drawClock.decimals[18].c = pink
+
+
+;
 
 /**
  * A closure to redraw the clock handles.
@@ -459,7 +462,7 @@ var runAnimation = (() => {
     { width: 2, length: 0.9, c: dollhouse },
     { width: 1, length: 0.95, c: white3 },
   ];
-  const oneMin = -(pi / 30); // 6 degrees
+  const oneMin = pi / 30; // 6 degrees
   let timer = null;
 
   const queryString = window.location.search;
@@ -492,10 +495,11 @@ var runAnimation = (() => {
     // 12 hours format: AM / PM
     let hours12 = hours % 12 || 12;
 
-    clock_handles[0].time2Angle = fiveMin * (+hours12 + minutes / 60);
-    clock_handles[1].time2Angle = oneMin * (+minutes + seconds / 60);
-    clock_handles[2].time2Angle = oneMin * seconds;
-    clock_handles[3].time2Angle = fiveMin * (+hours + minutes / 60) * 0.5;
+    clock_handles[0].time2Angle = -fiveMin * (+hours12 + minutes / 60);
+    clock_handles[1].time2Angle = -oneMin * (+minutes + seconds / 60);
+    clock_handles[2].time2Angle = -oneMin * seconds;
+    clock_handles[3].time2Angle = -fiveMin * (+hours + minutes / 60) * 0.5;
+    
 
     // Clear screen.
     ctx.clearRect(0, 0, canvas.width, canvas.height);
